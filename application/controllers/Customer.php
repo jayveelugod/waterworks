@@ -26,4 +26,8 @@ class Customer extends CI_Controller {
 	public function add(){
 		$this->load->view('pages/addcustomer');
 	}
+
+	public function billing(){
+		$this->load->view('pages/addcustomer');
+	}
 }

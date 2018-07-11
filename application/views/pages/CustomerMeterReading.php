@@ -23,8 +23,9 @@
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="assets/scss/style.css">
     <link rel="stylesheet" href="assets/css/waterworks.css">
+    <link rel="stylesheet" href="assets/css/lib/chosen/chosen.min.css">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='assets/css/googleFonts.css' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
@@ -45,35 +46,17 @@
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                   <li class="active">
+                    <li>
                         <a href="index.php"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     
-                    <li>
-                        <a href="customers"> <i class="menu-icon fa fa-table"></i>All Customers</a>
+                    <li class="active">
+                        <a href="customers"> <i class="menu-icon fa fa-table"></i>Meter Reading</a>
                     </li>
 
                     <li>
-                        <a href="add"> <i class="menu-icon fa fa-th"></i>Add Customer</a>
+                        <a href="billing"> <i class="menu-icon fa fa-th"></i>Billing</a>
                     </li>
-
-                    <li>
-                        <a href="add"> <i class="menu-icon fa fa-th"></i>Meter Reading</a>
-                    </li>
-
-                    <li>
-                        <a href="add"> <i class="menu-icon fa fa-th"></i>Billing</a>
-                    </li>
-                    
-                    <!-- <h3 class="menu-title">Extras</h3>
-                    <li class="menu-item-has-children dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-glass"></i>Pages</a>
-                        <ul class="sub-menu children dropdown-menu">
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-login.html">Login</a></li>
-                            <li><i class="menu-icon fa fa-sign-in"></i><a href="page-register.html">Register</a></li>
-                            <li><i class="menu-icon fa fa-paper-plane"></i><a href="pages-forget.html">Forget Pass</a></li>
-                        </ul>
-                    </li> -->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -102,7 +85,8 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">POBLACION</strong>
-                            <button type="button" class="btn btn-success rightBtn"><i class="fa fa-magic"></i>&nbsp; Add Customer</button>
+                            <button type="button" class="btn btn-success rightBtn addCustomerBtn" data-toggle="modal" data-target="#addCustomerModal"><i class="fa fa-magic"></i>&nbsp; Add Customer</button>
+                            <!-- data-toggle="modal" data-target="#addCustomerModal" -->
                         </div>
                         <div class="card-body">
                   <table id="" class="table table-striped table-bordered bootstrap-data-table">
@@ -195,6 +179,27 @@
 
     </div><!-- /#right-panel -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+           
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary btn-success">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Right Panel -->
 
 
@@ -220,7 +225,17 @@
     <script type="text/javascript">
         $(document).ready(function() {
           $('.bootstrap-data-table').DataTable();
+
+          $('.addCustomerBtn').on('click', function(){
+            $('.modal-body').load('add');
+          }); 
+          // $(".standardSelect").chosen({
+          //       disable_search_threshold: 10,
+          //       no_results_text: "Oops, nothing found!",
+          //       width: "100%"
+          //   });
         } );
+
     </script>
 
 

@@ -23,7 +23,7 @@
     <link rel="stylesheet" href="assets/scss/style.css">
     <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
 
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='assets/css/googleFonts.css' rel='stylesheet' type='text/css'>
 
     <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
 
@@ -55,7 +55,7 @@
                     </li>
 
                     <li>
-                        <a href="add"> <i class="menu-icon fa fa-th"></i>Billing</a>
+                        <a href="billing"> <i class="menu-icon fa fa-th"></i>Billing</a>
                     </li>
                     
                     <!-- <h3 class="menu-title">Extras</h3>
