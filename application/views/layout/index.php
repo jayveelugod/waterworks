@@ -51,11 +51,7 @@
                     </li>
                     
                     <li>
-                        <a href="customers"> <i class="menu-icon fa fa-table"></i>All Customers</a>
-                    </li>
-
-                    <li>
-                        <a href="add"> <i class="menu-icon fa fa-th"></i>Add Customer</a>
+                        <a href="customers"> <i class="menu-icon fa fa-table"></i>Meter Reading</a>
                     </li>
 
                     <li>

@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/lib/datatable/dataTables.bootstrap.min.css">
     <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="assets/scss/style.css">
+    <link rel="stylesheet" href="assets/css/waterworks.css">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -101,6 +102,7 @@
                     <div class="card">
                         <div class="card-header">
                             <strong class="card-title">POBLACION</strong>
+                            <button type="button" class="btn btn-success rightBtn"><i class="fa fa-magic"></i>&nbsp; Add Customer</button>
                         </div>
                         <div class="card-body">
                   <table id="" class="table table-striped table-bordered bootstrap-data-table">
