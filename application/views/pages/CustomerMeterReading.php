@@ -71,7 +71,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Customer List</h1>
+                        <h1>Customer Meter Reading</h1>
                     </div>
                 </div>
             </div>
@@ -81,97 +81,44 @@
             <div class="animated fadeIn">
                 <div class="row">
 
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">POBLACION</strong>
-                            <button type="button" class="btn btn-success rightBtn addCustomerBtn" data-toggle="modal" data-target="#addCustomerModal"><i class="fa fa-magic"></i>&nbsp; Add Customer</button>
-                            <!-- data-toggle="modal" data-target="#addCustomerModal" -->
-                        </div>
-                        <div class="card-body">
-                  <table id="" class="table table-striped table-bordered bootstrap-data-table">
-                    <thead>
-                      <tr>
-                        <th>Account Number</th>
-                        <th>Name</th>
-                        <th>Previous</th>
-                        <th>Present</th>
-                        <th>Consumption</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Tiger Nixon</td>
-                        <td>100</td>
-                        <td>101</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Garrett Winters</td>
-                        <td>200</td>
-                        <td>202</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Ashton Cox</td>
-                        <td>300</td>
-                        <td>301</td>
-                        <td>1</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">SAGUISE</strong>
-                        </div>
-                        <div class="card-body">
-                  <table id="" class="table table-striped table-bordered bootstrap-data-table">
-                    <thead>
-                      <tr>
-                        <th>Account Number</th>
-                        <th>Name</th>
-                        <th>Previous</th>
-                        <th>Present</th>
-                        <th>Consumption</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>Tiger Nixon</td>
-                        <td>100</td>
-                        <td>101</td>
-                        <td>1</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>Garrett Winters</td>
-                        <td>200</td>
-                        <td>202</td>
-                        <td>2</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>Ashton Cox</td>
-                        <td>300</td>
-                        <td>301</td>
-                        <td>1</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                        </div>
-                    </div>
-                </div>
-
-
+                <?php
+                    foreach ($barangayList as $brgyKey) {
+                        echo ' <div class="col-md-12">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <strong class="card-title">'.strtoupper($brgyKey->name).'</strong>
+                                        <button type="button" class="btn btn-success rightBtn addCustomerBtn" data-toggle="modal" data-target="#addCustomerModal" onclick="loadModal(\''.$brgyKey->id.'\', \''.$brgyKey->name.'\');"><i class="fa fa-magic"></i>&nbsp; Add Customer</button>
+                                    </div>
+                                    <div class="card-body">
+                              <table id="" class="table table-striped table-bordered bootstrap-data-table">
+                                <thead>
+                                  <tr>
+                                    <th>Account Number</th>
+                                    <th class="nameCol">Name</th>
+                                    <th class="readingCol">Previous</th>
+                                    <th class="readingCol">Present</th>
+                                    <th class="readingCol">Consumption</th>
+                                    <th>Action</th>
+                                  </tr>
+                                </thead>
+                                <tbody>';
+                        foreach ($customerList[$brgyKey->name] as $key) {
+                            echo '<tr>';
+                            echo '<td>'.$key->account_number.'</td>';
+                            echo '<td>'.$key->name.'</td>';
+                            echo '<td class="readingCol" contenteditable>200</td>';
+                            echo '<td class="readingCol">201</td>';
+                            echo '<td class="readingCol">1</td>';
+                            echo '<td> <button type="button" onclick="editReadings(\''.$key->account_number.'\')" class="btn btn-primary btn-sm"><i class="fa fa-star"></i>&nbsp; Edit</button></td>';
+                            echo '</tr>';
+                        }
+                        echo '</tbody>
+                              </table>
+                                    </div>
+                                </div>
+                            </div>';
+                    }
+                ?>
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
@@ -180,23 +127,8 @@
     </div><!-- /#right-panel -->
 
     <!-- Modal -->
-    <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="addCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
       <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Customer</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-           
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary btn-success">Save</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          </div>
-        </div>
       </div>
     </div>
 
@@ -224,17 +156,16 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-          $('.bootstrap-data-table').DataTable();
+          $('.bootstrap-data-table').DataTable(); 
+        });
 
-          $('.addCustomerBtn').on('click', function(){
-            $('.modal-body').load('add');
-          }); 
-          // $(".standardSelect").chosen({
-          //       disable_search_threshold: 10,
-          //       no_results_text: "Oops, nothing found!",
-          //       width: "100%"
-          //   });
-        } );
+        function loadModal(id, name) {
+            $('.modal-dialog').load('modal/' + id + '/' + name);
+        }
+
+        function editReadings(account_number) {
+            console.log(account_number)
+        }
 
     </script>
 

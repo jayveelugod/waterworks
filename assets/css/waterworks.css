@@ -1,3 +1,33 @@
 .rightBtn {
 	float: right;
 }
+
+.customerForm {
+	width: 100%
+}
+
+.divInlineBlock {
+	display: inline-block;
+}
+
+.divInlineBlockForm {
+	width: 50%;
+	margin-left: 25%;
+}
+
+.successMessage {
+	color: #319c4a;
+}
+
+.div50 {
+	width: 60%;
+}
+
+.nameCol {
+	width: 250px;
+}
+
+.readingCol {
+	width: 80px;
+	text-align: center;
+}
